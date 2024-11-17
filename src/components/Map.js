@@ -18,7 +18,7 @@ function MapComponent({ kml }) {
     });
 
     const vectorLayer = new VectorLayer({
-      source: source,
+      source,
     });
 
     const tileLayer = new TileLayer({ source: new OSMSource() });
@@ -29,9 +29,15 @@ function MapComponent({ kml }) {
     });
 
     const map = new Map({
-      layers: [vectorLayer, tileLayer],
+      layers: [tileLayer, vectorLayer],
       target: "map",
-      view: view,
+      view,
+    });
+
+    vectorLayer.getSource().on("featuresloadend", () => {
+      map.getView().fit(vectorLayer.getSource().getExtent(), {
+        padding: [50, 50, 50, 50],
+      });
     });
 
     return () => map.setTarget(null);
