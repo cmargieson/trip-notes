@@ -24,7 +24,7 @@ const config = {
    */
 
   // Path to your site favicon
-  favicon: "img/favicon.ico",
+  favicon: "img/compass.svg",
 
   // The i18n configuration object to localize your site. Use this field to set metadata like html lang.
   i18n: {
@@ -36,16 +36,17 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      footer: {
+        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      },
       navbar: {
+        logo: {
+          alt: "Site Logo",
+          src: "img/compass.svg",
+          width: 32,
+          height: 32,
+        },
         title: "Trip Notes",
-        items: [
-          {
-            // The name to be shown for this item.
-            label: "Motorbike Routes",
-            // Client-side routing, used for navigating within the website. The baseUrl will be automatically prepended to this value.
-            to: "/motorbike-routes",
-          },
-        ],
       },
       prism: {
         theme: prismThemes.github,

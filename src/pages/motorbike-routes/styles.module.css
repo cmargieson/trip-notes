@@ -1,0 +1,35 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content {
+  display: flex;
+  flex: 1;
+}
+.nav {
+  flex: 1;
+  height: calc(100vh - 60px);
+  order: -1;
+  overflow-y: scroll;
+}
+
+.map {
+  flex: 2;
+
+  background-color: blueviolet;
+}
+
+footer {
+  display: none;
+}
+
+.card {
+  margin: 20px;
+}
+
+@media (max-width: 996px) {
+  .nav {
+    display: none;
+  }
+}
